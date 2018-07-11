@@ -42,12 +42,77 @@ open class RCTUser: NSObject, IMUIUserProtocol {
   }
   
   public func Avatar() -> UIImage {
+    
     if let path = self.rAvatarFilePath {
-      let fileManager = FileManager.default
-      if fileManager.fileExists(atPath: path) {
-        return UIImage(contentsOfFile: path)!
-      }
+        
+    
+        if path.isEmpty {
+           
+            let image =  UIImage(named: "default_header")
+            if image != nil {
+                return image!
+            }
+            
+            return UIImage()
+        }
+        
+        
+        //请求网络获取图片
+        let url: URL! = URL(string: path)
+        
+        var image: UIImage? = nil
+        
+        if url != nil {
+            
+            do {
+                
+                let imageData = try Data(contentsOf: url)
+                
+                image = UIImage(data: imageData)
+                
+                if image != nil {
+                    return image!
+                } else {
+                    
+                    let image =  UIImage(named: "default_header")
+                    if image != nil {
+                        return image!
+                    }
+                    
+                    return UIImage()
+                }
+                
+            } catch {
+                
+                let image =  UIImage(named: "default_header")
+                if image != nil {
+                    return image!
+                }
+                
+                return UIImage()
+            }
+            
+            
+        } else {
+            let image =  UIImage(named: "default_header")
+            if image != nil {
+                return image!
+            }
+            
+            return UIImage()
+        }
+        
+        
     }
+    
+    
+    let image =  UIImage(named: "default_header")
+    if image != nil {
+        return image!
+    }
+    
     return UIImage()
   }
+    
+    
 }

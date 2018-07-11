@@ -104,6 +104,9 @@
 		62BD327A20E4D9F900867FBE /* RCTAuroraIMUIFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B0CB33204E41C100D87F94 /* RCTAuroraIMUIFileManager.m */; };
 		62BD328220E4DCF600867FBE /* RCTInputView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 623EA97C1EE55CB200EC43AE /* RCTInputView.xib */; };
 		62BD328320E4DCF600867FBE /* RCTMessageListView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 623EA9801EE55CB200EC43AE /* RCTMessageListView.xib */; };
+		DD3DD62620F5F7A400CE6B99 /* default_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3DD62320F5F7A400CE6B99 /* default_header@2x.png */; };
+		DD3DD62720F5F7A400CE6B99 /* default_header@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3DD62420F5F7A400CE6B99 /* default_header@3x.png */; };
+		DD3DD62820F5F7A400CE6B99 /* default_header.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3DD62520F5F7A400CE6B99 /* default_header.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +245,9 @@
 		6298E7F11FB40D3400E53CAF /* IMUICustomMessageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMUICustomMessageContentView.swift; sourceTree = "<group>"; };
 		62B0CB33204E41C100D87F94 /* RCTAuroraIMUIFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAuroraIMUIFileManager.m; sourceTree = "<group>"; };
 		62B0CB34204E41C100D87F94 /* RCTAuroraIMUIFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAuroraIMUIFileManager.h; sourceTree = "<group>"; };
+		DD3DD62320F5F7A400CE6B99 /* default_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_header@2x.png"; sourceTree = "<group>"; };
+		DD3DD62420F5F7A400CE6B99 /* default_header@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_header@3x.png"; sourceTree = "<group>"; };
+		DD3DD62520F5F7A400CE6B99 /* default_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_header.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,6 +500,7 @@
 		623EA96F1EE55CB200EC43AE /* RCTAuroraIMUI */ = {
 			isa = PBXGroup;
 			children = (
+				DD3DD62220F5F79200CE6B99 /* Resource */,
 				623EA9701EE55CB200EC43AE /* imuiDemo-Bridging-Header.h */,
 				623EA9711EE55CB200EC43AE /* IMUIInputViewManager.m */,
 				623EA9721EE55CB200EC43AE /* Info.plist */,
@@ -559,6 +566,16 @@
 				623EA9A11EE55D0800EC43AE /* RCTAuroraIMUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DD3DD62220F5F79200CE6B99 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DD3DD62520F5F7A400CE6B99 /* default_header.png */,
+				DD3DD62320F5F7A400CE6B99 /* default_header@2x.png */,
+				DD3DD62420F5F7A400CE6B99 /* default_header@3x.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -688,9 +705,11 @@
 				62127A61208621EF002F5443 /* IMUIEmojiCell.xib in Resources */,
 				62127A6E208621EF002F5443 /* IMUIRecordVoiceCell.xib in Resources */,
 				62127A64208621EF002F5443 /* IMUICameraView.xib in Resources */,
+				DD3DD62720F5F7A400CE6B99 /* default_header@3x.png in Resources */,
 				62127A5E208621EF002F5443 /* IMUIFeatureView.xib in Resources */,
 				624B82DB1EE57482006C3C03 /* RCTMessageListView.xib in Resources */,
 				62127A6B208621EF002F5443 /* IMUIEmojiItemCell.xib in Resources */,
+				DD3DD62820F5F7A400CE6B99 /* default_header.png in Resources */,
 				62127A70208621EF002F5443 /* IMUIFeatureListIconCell.xib in Resources */,
 				62127A59208621EF002F5443 /* IMUIFeatureListView.xib in Resources */,
 				62127A71208621EF002F5443 /* IMUIInputViewAssets.bundle in Resources */,
@@ -699,6 +718,7 @@
 				62127A94208621EF002F5443 /* IMUIMessageCollectionView.xib in Resources */,
 				62127A98208621EF002F5443 /* IMUIAssets.bundle in Resources */,
 				62127A62208621EF002F5443 /* IMUICameraCell.xib in Resources */,
+				DD3DD62620F5F7A400CE6B99 /* default_header@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
