@@ -276,6 +276,37 @@ open class IMUIInputView: IMUICustomInputView {
       break
     }
   }
+    
+    
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text ==  "\n" {
+            
+            if IMUIGalleryDataManager.selectedAssets.count > 0 {
+                
+                self.delegate?.didSeletedGallery?(AssetArr: IMUIGalleryDataManager.selectedAssets)
+                self.featureView.clearAllSelectedGallery()
+                self.updateSendBtnToPhotoSendStatus()
+                
+                textView.resignFirstResponder()
+                
+                return  false
+            }
+            
+            if inputTextView.text != "" {
+                delegate?.sendTextMessage?(self.inputTextView.text)
+                inputTextView.text = ""
+                self.delegate?.textDidChange?(text: "")
+                fitTextViewSize(inputTextView)
+            }
+            print("发送数据");
+            textView.resignFirstResponder()
+            
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension IMUIInputView: IMUICustomInputViewDataSource {
