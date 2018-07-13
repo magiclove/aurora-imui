@@ -175,7 +175,11 @@ open class IMUICustomInputView: UIView {
     
     UIView.animate(withDuration: duration) {
       if bottomDistance > 10.0 {
-        IMUIFeatureViewHeight = bottomDistance
+        if CGSize(width: 375, height: 812).equalTo(UIScreen.main.bounds.size){
+            IMUIFeatureViewHeight = bottomDistance-38
+        } else {
+            IMUIFeatureViewHeight = bottomDistance
+        }
         self.inputViewDelegate?.keyBoardWillShow?(height: keyboardValue.cgRectValue.size.height, durationTime: duration)
         self.moreViewHeight.constant = IMUIFeatureViewHeight
       }

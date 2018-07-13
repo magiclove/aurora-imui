@@ -114,7 +114,12 @@
   NSDictionary *dic = notif.userInfo;
   NSValue *keyboardValue = dic[UIKeyboardFrameEndUserInfoKey];
   CGFloat bottomDistance = [UIScreen mainScreen].bounds.size.height - keyboardValue.CGRectValue.origin.y;
-  self.keyBoardHeight  = bottomDistance;
+    
+    if(CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812))){
+        self.keyBoardHeight  = bottomDistance - 38;
+    } else {
+        self.keyBoardHeight  = bottomDistance;
+    }
 }
 
 - (void)keyboardDidShow:(NSNotification *) notif{
@@ -122,7 +127,11 @@
   NSValue *keyboardValue = dic[UIKeyboardFrameEndUserInfoKey];
   CGFloat bottomDistance = [UIScreen mainScreen].bounds.size.height - keyboardValue.CGRectValue.origin.y;
   if (self.maxKeyBoardHeight < bottomDistance) {
-    self.maxKeyBoardHeight = bottomDistance;
+      if(CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812))){
+          self.maxKeyBoardHeight = bottomDistance-38;
+      } else {
+          self.maxKeyBoardHeight  = bottomDistance;
+      }
   }
   self.keyBoardHeight  = bottomDistance;
   if(self.onSizeChange) {

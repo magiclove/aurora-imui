@@ -288,7 +288,7 @@ open class IMUIInputView: IMUICustomInputView {
                 self.featureView.clearAllSelectedGallery()
                 self.updateSendBtnToPhotoSendStatus()
                 
-                textView.resignFirstResponder()
+//                textView.resignFirstResponder()
                 
                 return  false
             }
@@ -299,9 +299,9 @@ open class IMUIInputView: IMUICustomInputView {
                 self.delegate?.textDidChange?(text: "")
                 fitTextViewSize(inputTextView)
             }
-            print("发送数据");
-            textView.resignFirstResponder()
-            
+//            print("发送数据");
+//            textView.resignFirstResponder()
+               self.updateSendBtnToPhotoSendStatus()
             return false
         }
         
