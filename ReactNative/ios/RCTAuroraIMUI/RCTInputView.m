@@ -133,7 +133,12 @@
           self.maxKeyBoardHeight  = bottomDistance;
       }
   }
-  self.keyBoardHeight  = bottomDistance;
+    if(CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812))){
+        self.keyBoardHeight = bottomDistance-38;
+        
+    } else {
+        self.keyBoardHeight  = bottomDistance;
+    }
   if(self.onSizeChange) {
     BOOL needShow = [self.imuiIntputView isNeedShowBottomView];
     self.onSizeChange(@{@"height":@(46 + self.inputTextHeight + self.keyBoardHeight +
