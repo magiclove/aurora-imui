@@ -133,7 +133,15 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocol {
   }
   
   func setupData(with message: IMUIMessageModelProtocol) {
-    self.avatarImage.image = message.fromUser.Avatar()
+    DispatchQueue.global().async {
+        
+        let image = message.fromUser.Avatar()
+        
+        DispatchQueue.main.async {
+            self.avatarImage.image = image
+        }
+        
+    }
     self.bubbleView.backgroundColor = IMUIBaseMessageCell.backgroundColor
     self.timeLabel.text = message.timeString
     self.nameLabel.text = message.fromUser.displayName()
