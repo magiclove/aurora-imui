@@ -483,10 +483,10 @@ public class ChatInputView extends LinearLayout
                         } else if (isKeyboardVisible()) {
                             mPendingShowMenu = true;
                             EmoticonsKeyboardUtils.closeSoftKeyboard(mChatInput);
-//                            showCameraLayout();
+                            showCameraLayout();
                         } else {
-//                            showMenuLayout();
-//                            showCameraLayout();
+                            showMenuLayout();
+                            showCameraLayout();
                         }
                         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                             if (mCameraSupport == null && mCameraFl.getVisibility() == VISIBLE) {
