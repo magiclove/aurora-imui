@@ -57,6 +57,17 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocol {
     
     nameLabel.font = IMUIMessageCellLayout.nameLabelTextFont
     
+    
+    //设置默认图
+    
+    let defaultImagePath = Bundle.imuiBundle().path(forResource: "default_header", ofType: "png")
+    if  let defaulImage = UIImage(contentsOfFile: defaultImagePath!) {
+        self.avatarImage.image = defaulImage
+        
+    }
+    
+    
+    
     self.setupSubViews()
   }
   
@@ -133,8 +144,13 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocol {
   }
   
   func setupData(with message: IMUIMessageModelProtocol) {
+    
+    
+    
+    
     DispatchQueue.global().async {
         
+
         let image = message.fromUser.Avatar()
         
         DispatchQueue.main.async {
@@ -142,6 +158,7 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocol {
         }
         
     }
+    
     self.bubbleView.backgroundColor = IMUIBaseMessageCell.backgroundColor
     self.timeLabel.text = message.timeString
     self.nameLabel.text = message.fromUser.displayName()
@@ -174,6 +191,9 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocol {
       self.nameLabel.textAlignment = .left
     }
   }
+    
+    
+//    private func loadImage()
   
   func presentCell(with message: IMUIMessageModelProtocol, viewCache: IMUIReuseViewCache, delegate: IMUIMessageMessageCollectionViewDelegate?) {
     
