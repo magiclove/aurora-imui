@@ -41,78 +41,75 @@ open class RCTUser: NSObject, IMUIUserProtocol {
     }
   }
   
-  public func Avatar() -> UIImage {
-    
-    if let path = self.rAvatarFilePath {
+    public func Avatar() -> UIImage {
         
-    
-        if path.isEmpty {
-           
-            let image =  UIImage(named: "default_header")
-            if image != nil {
-                return image!
-            }
+        
+        let defaultImagePath = Bundle.imuiBundle().path(forResource: "default_header", ofType: "png")
+        
+        let defaulImage = UIImage(contentsOfFile: defaultImagePath!);
+        
+        
+        if self.rAvatarFilePath == nil || (self.rAvatarFilePath?.isEmpty)!  {
             
+            if defaulImage != nil {
+                return defaulImage!
+            }
             return UIImage()
         }
         
-        
-        //请求网络获取图片
-        let url: URL! = URL(string: path)
-        
-        var image: UIImage? = nil
-        
-        if url != nil {
+        if let path = self.rAvatarFilePath {
             
-            do {
+            //请求网络获取图片
+            let url: URL! = URL(string: path)
+            
+            var image: UIImage? = nil
+            
+            if url != nil {
                 
-                let imageData = try Data(contentsOf: url)
-                
-                image = UIImage(data: imageData)
-                
-                if image != nil {
-                    return image!
-                } else {
+                do {
                     
-                    let image =  UIImage(named: "default_header")
+                    let imageData = try Data(contentsOf: url)
+                    
+                    image = UIImage(data: imageData)
+                    
                     if image != nil {
                         return image!
+                    } else {
+                        
+                        if defaulImage != nil {
+                            return defaulImage!
+                        }
+                        return UIImage()
+                        
                     }
                     
+                } catch {
+                    
+                    if defaulImage != nil {
+                        return defaulImage!
+                    }
                     return UIImage()
                 }
                 
-            } catch {
                 
-                let image =  UIImage(named: "default_header")
-                if image != nil {
-                    return image!
+            } else {
+                if defaulImage != nil {
+                    return defaulImage!
                 }
-                
                 return UIImage()
             }
             
             
-        } else {
-            let image =  UIImage(named: "default_header")
-            if image != nil {
-                return image!
-            }
-            
-            return UIImage()
         }
         
         
+        let image =  UIImage(named: "default_header")
+        if image != nil {
+            return image!
+        }
+        
+        return UIImage()
     }
-    
-    
-    let image =  UIImage(named: "default_header")
-    if image != nil {
-        return image!
-    }
-    
-    return UIImage()
-  }
     
     
 }
